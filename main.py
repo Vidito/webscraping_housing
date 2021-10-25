@@ -16,8 +16,8 @@ with open('housing.csv', 'w', encoding='utf8', newline='') as f:
     for list in lists:
         title = list.find('a', class_="listing-search-item__link--title").text.replace('\n', '')
         location = list.find('div', class_="listing-search-item__location").text.replace('\n', '')
-        price = list.find('span', class_="listing-search-item__price").text.replace('\n', '')
-        area = list.find('span', class_="illustrated-features__description").text.replace('\n', '')
+        price = list.find('div', class_="listing-search-item__price").text.replace('\n', '')
+        area = list.find('li', class_="illustrated-features__item illustrated-features__item--surface-area").text.replace('\n', '')
         
         info = [title, location, price, area]
         thewriter.writerow(info)
